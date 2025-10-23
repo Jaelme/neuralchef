@@ -44,12 +44,44 @@ Dies startet:
 
 ### 3. Anwendung bauen und starten
 
+#### Linux/Mac:
 ```bash
 ./mvnw clean install
 ./mvnw spring-boot:run
 ```
 
+#### Windows:
+
+**Option 1 - Mit Maven (empfohlen):**
+```powershell
+mvn spring-boot:run
+```
+
+Falls Maven nicht installiert ist, installiere es mit:
+- **Chocolatey**: `choco install maven`
+- **Scoop**: `scoop install maven`
+- **Manuell**: Herunterladen von https://maven.apache.org/download.cgi
+
+**Option 2 - Mit Start-Skript:**
+```powershell
+.\start.ps1
+```
+oder
+```cmd
+start.cmd
+```
+
+**Option 3 - Maven Wrapper (bei Problemen mit Leerzeichen im Pfad):**
+```powershell
+$env:MAVEN_USER_HOME = "C:\maven-home"
+.\mvnw.cmd spring-boot:run
+```
+
 Die Anwendung ist nun unter `http://localhost:8080` erreichbar.
+
+#### Bekannte Probleme unter Windows
+
+Wenn der Maven Wrapper mit der Fehlermeldung "Cannot start maven from wrapper" fehlschlägt und dein Windows-Benutzername Leerzeichen enthält (z.B. "C:\Users\Jakob Meier"), verwende eine der oben genannten Lösungen.
 
 ## API Endpoints
 
